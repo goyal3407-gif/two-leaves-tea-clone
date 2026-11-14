@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Leaves and a Bud - Tea Clone (practice project)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- top small bar -->
+<div class="topbar">
+  <p>Free shipping on orders over $50 &nbsp;|&nbsp; Use code TEATIME for 10% off</p>
+</div>
+
+<!-- header start -->
+<header class="myheader">
+  <div class="logo">Two Leaves <span>and a Bud</span></div>
+
+  <nav class="nav-links" id="navBox">
+    <a href="#shop">Shop</a>
+    <a href="#story">Our Origins</a>
+    <a href="#lattes">Lattes</a>
+    <a href="#wholesale">Wholesale</a>
+    <a href="#journal">Journal</a>
+  </nav>
+
+  <div class="header-right">
+    <button class="cart-btn" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
+    <button class="menu-btn" onclick="openMenu()">☰</button>
+  </div>
+</header>
+
+<!-- hero section -->
+<section class="hero-section">
+  <div class="hero-text">
+    <h1>A <i>great</i> cup starts with a careful pluck - the top two leaves and a bud.</h1>
+    <p>Whole leaf organic teas, sourced from the best gardens in the world and packed in Colorado.</p>
+    <a href="#shop" class="big-btn">Shop Best Sellers</a>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="cup of tea">
+  </div>
+</section>
+
+<!-- best sellers -->
+<section class="tea-section" id="shop">
+  <h2 class="section-title">Best Sellers</h2>
+
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="showTeas('all', this)">All</button>
+    <button class="filter-btn" onclick="showTeas('black', this)">Black Tea</button>
+    <button class="filter-btn" onclick="showTeas('green', this)">Green Tea</button>
+    <button class="filter-btn" onclick="showTeas('latte', this)">Latte Mix</button>
+    <button class="filter-btn" onclick="showTeas('herbal', this)">Herbal</button>
+  </div>
+
+  <div class="tea-grid" id="teaGrid">
+    <!-- tea cards come from script.js -->
+  </div>
+</section>
+
+<!-- reviews -->
+<section class="review-section">
+  <h2 class="section-title">Loved by tea people <i>everywhere</i>.</h2>
+  <p class="small-text">Here's what they're saying.</p>
+
+  <div class="review-box">
+    <button class="arrow-btn" onclick="nextReview(-1)">&#10094;</button>
+    <div class="review-text">
+      <p id="reviewLine">"The right amount of spice."</p>
+      <h4 id="reviewName">- Sarah K. (Organic Mountain High Chai)</h4>
+    </div>
+    <button class="arrow-btn" onclick="nextReview(1)">&#10095;</button>
+  </div>
+</section>
+
+<!-- our story -->
+<section class="story-section" id="story">
+  <div class="story-text">
+    <p class="small-tag">Our Origins</p>
+    <h2>Born in Colorado</h2>
+    <p>Our founder started this company in pursuit of a truly great cup of tea. Two decades later, that same care and curiosity guide everything we make - from farm to kettle.</p>
+  </div>
+
+  <div class="value-row">
+    <div class="value-box">
+      <div class="value-icon">🌿</div>
+      <h3>Quality, Without Pretense</h3>
+      <p>Whole leaf, organic ingredients. Nothing fake, ever.</p>
+    </div>
+    <div class="value-box">
+      <div class="value-icon">🤝</div>
+      <h3>Care for People & Planet</h3>
+      <p>We pay fair prices and use compostable sachets.</p>
+    </div>
+    <div class="value-box">
+      <div class="value-icon">🔍</div>
+      <h3>Transparent Sourcing</h3>
+      <p>We tell you exactly where your tea comes from.</p>
+    </div>
+  </div>
+</section>
+
+<!-- discover by vibe -->
+<section class="vibe-section">
+  <h2 class="section-title">Let's find a cup that fits the <i>moment</i>.</h2>
+  <p class="small-text">What are you searching for? Or explore by vibe...</p>
+  <div class="vibe-row">
+    <button class="vibe-btn" onclick="showTeas('black', null)">☀️ Morning Energy</button>
+    <button class="vibe-btn" onclick="showTeas('herbal', null)">😌 Calm & Cozy</button>
+    <button class="vibe-btn" onclick="showTeas('green', null)">🌱 Light & Fresh</button>
+    <button class="vibe-btn" onclick="showTeas('latte', null)">🥛 Sweet Treat</button>
+  </div>
+</section>
+
+<!-- lattes -->
+<section class="tea-section" id="lattes">
+  <h2 class="section-title">Our Lattes - Barista Blends for Every Mood</h2>
+  <p class="small-text">(No training required)</p>
+  <div class="tea-grid" id="latteGrid">
+    <!-- latte cards come from script.js -->
+  </div>
+</section>
+
+<!-- wholesale -->
+<section class="wholesale-section" id="wholesale">
+  <h2>Our Cafe & Wholesale Partners</h2>
+  <p>From local cafés to national chains, our teas power thousands of baristas every day.</p>
+  <a href="#footer" class="big-btn">Become a Partner</a>
+</section>
+
+<!-- journal -->
+<section class="tea-section" id="journal">
+  <h2 class="section-title">Journal</h2>
+  <p class="small-text">A community steeped in <i>curiosity</i>. Explore recipes, culture, and everyday tea wisdom.</p>
+  <div class="tea-grid">
+    <div class="journal-box">
+      <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=600&q=80" alt="pouring tea">
+      <h3>How to brew the perfect chai</h3>
+      <p>5 simple steps most people get wrong...</p>
+    </div>
+    <div class="journal-box">
+      <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="tea cup">
+      <h3>Matcha vs green tea - what's the difference?</h3>
+      <p>Both come from the same plant, but...</p>
+    </div>
+    <div class="journal-box">
+      <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="tea pot">
+      <h3>Our trip to the tea gardens of Assam</h3>
+      <p>Notes from this year's sourcing trip...</p>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="myfooter" id="footer">
+  <div class="footer-col">
+    <h3>Two Leaves and a Bud</h3>
+    <p>Basalt, Colorado<br>Practice clone project - not the real store.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Shop</h4>
+    <a href="#shop">Best Sellers</a>
+    <a href="#lattes">Lattes</a>
+    <a href="#wholesale">Wholesale</a>
+  </div>
+  <div class="footer-col">
+    <h4>Newsletter</h4>
+    <p>Get 10% off your first order.</p>
+    <input type="email" id="newsEmail" placeholder="Your email">
+    <button class="small-btn" onclick="joinNews()">Join</button>
+    <p id="newsMsg"></p>
+  </div>
+</footer>
+
+<!-- cart sidebar -->
+<div class="cart-bg" id="cartBg" onclick="closeCart()"></div>
+<div class="cart-box" id="cartBox">
+  <button class="close-btn" onclick="closeCart()">✕</button>
+  <h3>Your Cart</h3>
+  <div id="cartItems"></div>
+  <h4 class="cart-total">Total: $<span id="cartTotal">0.00</span></h4>
+  <button class="big-btn" onclick="alert('Demo checkout - this is a practice project!')">Checkout</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
