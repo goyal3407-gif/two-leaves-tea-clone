@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Two Leaves and a Bud - Tea Clone (practice project)</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -65,21 +65,21 @@
     <p id="resultCount" class="small-text"></p>
   </div>
 
-  <div class="tea-grid" id="teaGrid">
-    
+  <div class="row-wrap">
+    <button class="row-arrow" onclick="scrollRow(-1)">&#10094;</button>
+    <div class="tea-grid tea-row" id="teaGrid"></div>
+    <button class="row-arrow" onclick="scrollRow(1)">&#10095;</button>
   </div>
 </section>
 
 <section class="review-section">
+  <p class="small-tag">Reviews</p>
   <h2 class="section-title">Loved by tea people <i>everywhere</i>.</h2>
   <p class="small-text">Here's what they're saying.</p>
 
   <div class="review-box">
     <button class="arrow-btn" onclick="nextReview(-1)">&#10094;</button>
-    <div class="review-text">
-      <p id="reviewLine">"The right amount of spice."</p>
-      <h4 id="reviewName">- Sarah K. (Organic Mountain High Chai)</h4>
-    </div>
+    <div class="review-cards" id="reviewCards"></div>
     <button class="arrow-btn" onclick="nextReview(1)">&#10095;</button>
   </div>
 </section>
@@ -110,14 +110,35 @@
   </div>
 </section>
 
+<section class="band-section">
+  <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1600&q=80" alt="green tea garden">
+  <div class="band-text">
+    <h2>From farm to kettle</h2>
+    <p>We visit the gardens, taste every lot, and only buy what we would proudly serve at home.</p>
+  </div>
+</section>
+
 <section class="vibe-section">
+  <p class="small-tag">Discover</p>
   <h2 class="section-title">Let's find a cup that fits the <i>moment</i>.</h2>
   <p class="small-text">What are you searching for? Or explore by vibe...</p>
-  <div class="vibe-row">
-    <button class="vibe-btn" onclick="showTeas('black', null)">☀️ Morning Energy</button>
-    <button class="vibe-btn" onclick="showTeas('herbal', null)">😌 Calm & Cozy</button>
-    <button class="vibe-btn" onclick="showTeas('green', null)">🌱 Light & Fresh</button>
-    <button class="vibe-btn" onclick="showTeas('latte', null)">🥛 Sweet Treat</button>
+  <div class="vibe-tiles">
+    <div class="vibe-tile" onclick="showTeas('black', null)">
+      <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=500&h=380&q=80" alt="black tea">
+      <span>Morning Energy</span>
+    </div>
+    <div class="vibe-tile" onclick="showTeas('herbal', null)">
+      <img src="https://images.unsplash.com/photo-1523920290228-4f321a939b4c?auto=format&fit=crop&w=500&h=380&q=80" alt="herbal tea">
+      <span>Calm & Cozy</span>
+    </div>
+    <div class="vibe-tile" onclick="showTeas('green', null)">
+      <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?auto=format&fit=crop&w=500&h=380&q=80" alt="green tea">
+      <span>Light & Fresh</span>
+    </div>
+    <div class="vibe-tile" onclick="showTeas('latte', null)">
+      <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=500&h=380&q=80" alt="matcha latte">
+      <span>Sweet Treat</span>
+    </div>
   </div>
 </section>
 
@@ -226,6 +247,6 @@
   <button class="big-btn" onclick="alert('Demo checkout - this is a practice project!')">Checkout</button>
 </div>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>

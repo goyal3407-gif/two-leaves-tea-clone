@@ -214,22 +214,39 @@ function openMenu() {
 }
 
 var reviews = [
-  { text: '"The right amount of spice."', name: "- Sarah K. (Organic Mountain High Chai)" },
-  { text: '"One sip and you can feel the difference - clean energy, rich flavor. Literally liquid gold."', name: "- Harrison G. (Golden Latte Mix)" },
-  { text: '"Soo tasty and energizing."', name: "- Gracie M. (Organic Tropical Green Tea)" },
-  { text: '"The perfect start to my day."', name: "- Jorge F. (Assam Breakfast Tea)" }
+  { text: '"The right amount of spice."', name: "Sarah K.", product: "Organic Mountain High Chai", stars: 5 },
+  { text: '"One sip and you can feel the difference - clean energy, rich flavor. Literally liquid gold."', name: "Harrison G.", product: "Golden Latte Mix", stars: 5 },
+  { text: '"Soo tasty and energizing."', name: "Gracie M.", product: "Organic Tropical Green Tea", stars: 5 },
+  { text: '"The perfect start to my day."', name: "Jorge F.", product: "Assam Breakfast Tea", stars: 4 }
 ];
 var reviewIndex = 0;
+
+function printReviews() {
+  var html = "";
+  for (var k = 0; k < 3; k++) {
+    var r = reviews[(reviewIndex + k) % reviews.length];
+    html += '<div class="review-card">'
+      + '<div class="star-line">' + makeStars(r.stars) + '</div>'
+      + '<p>' + r.text + '</p>'
+      + '<h4>' + r.name + '</h4>'
+      + '<h5>' + r.product + '</h5>'
+      + '</div>';
+  }
+  document.getElementById('reviewCards').innerHTML = html;
+}
 
 function nextReview(step) {
   reviewIndex = reviewIndex + step;
   if (reviewIndex >= reviews.length) { reviewIndex = 0; }
   if (reviewIndex < 0) { reviewIndex = reviews.length - 1; }
-  document.getElementById('reviewLine').innerText = reviews[reviewIndex].text;
-  document.getElementById('reviewName').innerText = reviews[reviewIndex].name;
+  printReviews();
 }
 
-setInterval(function() { nextReview(1); }, 6000);
+setInterval(function() { nextReview(1); }, 7000);
+
+function scrollRow(dir) {
+  document.getElementById('teaGrid').scrollBy({ left: dir * 290, behavior: 'smooth' });
+}
 
 var articles = [
   { title: "How to brew the perfect chai",
@@ -283,5 +300,6 @@ function sendPartnerForm() {
 }
 
 printTeas(teaList, 'teaGrid');
+printReviews();
 printTeas(latteList, 'latteGrid');
 updateCart();
