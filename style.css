@@ -1,4 +1,4 @@
-/* style.css - two leaves tea clone, written for practice */
+
 
 * {
   margin: 0;
@@ -12,7 +12,6 @@ body {
   background: #fdfbf7;
 }
 
-/* top bar */
 .topbar {
   background: #37503a;
   color: #fff;
@@ -22,7 +21,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* header */
 .myheader {
   display: flex;
   justify-content: space-between;
@@ -70,7 +68,6 @@ body {
   margin-left: 10px;
 }
 
-/* hero */
 .hero-section {
   display: flex;
   align-items: center;
@@ -97,13 +94,11 @@ body {
 }
 .big-btn:hover { background: #96683e; }
 
-/* sections */
 .tea-section { padding: 60px 40px; }
 .section-title { text-align: center; font-size: 32px; font-weight: normal; }
 .small-text { text-align: center; color: #5c554b; margin-top: 8px; }
 .small-tag { color: #b07d4f; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
 
-/* filter buttons */
 .filter-row { text-align: center; margin: 25px 0 10px; }
 .filter-btn, .vibe-btn {
   background: white;
@@ -119,7 +114,6 @@ body {
   color: white;
 }
 
-/* tea cards */
 .tea-grid {
   display: flex;
   flex-wrap: wrap;
@@ -140,7 +134,6 @@ body {
 .price-tag { color: #37503a; font-weight: bold; font-size: 17px; margin-bottom: 10px; }
 .star-line { color: #e0a526; font-size: 14px; margin-bottom: 8px; }
 
-/* reviews */
 .review-section { background: #37503a; color: white; padding: 60px 40px; text-align: center; }
 .review-section .small-text { color: #cfd8cf; }
 .review-box {
@@ -165,7 +158,6 @@ body {
 }
 .arrow-btn:hover { background: white; color: #37503a; }
 
-/* story */
 .story-section { padding: 60px 40px; text-align: center; }
 .story-text { max-width: 650px; margin: 0 auto; }
 .story-text h2 { font-size: 34px; font-weight: normal; margin: 10px 0 15px; }
@@ -174,12 +166,10 @@ body {
 .value-icon { font-size: 36px; }
 .value-box h3 { margin: 12px 0 8px; font-size: 18px; }
 
-/* vibe */
 .vibe-section { padding: 50px 40px; background: #fbf7ee; text-align: center; }
 .vibe-row { margin-top: 22px; }
 .vibe-btn { font-size: 15px; padding: 11px 22px; }
 
-/* wholesale */
 .wholesale-section {
   background: #b07d4f;
   color: white;
@@ -190,13 +180,11 @@ body {
 .wholesale-section p { margin: 14px 0 24px; }
 .wholesale-section .big-btn { background: white; color: #96683e; }
 
-/* journal */
 .journal-box { width: 280px; text-align: left; }
 .journal-box img { width: 100%; height: 170px; object-fit: cover; border-radius: 10px; }
 .journal-box h3 { margin: 12px 0 6px; font-size: 18px; font-weight: normal; }
 .journal-box p { color: #5c554b; font-size: 14px; }
 
-/* footer */
 .myfooter {
   background: #2e2a26;
   color: #e5ddd0;
@@ -217,7 +205,6 @@ body {
   width: 70%;
 }
 
-/* cart sidebar */
 .cart-bg {
   display: none;
   position: fixed;
@@ -255,7 +242,6 @@ body {
 }
 .cart-total { margin: 18px 0; }
 
-/* mobile */
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-links.open {

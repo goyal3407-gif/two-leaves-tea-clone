@@ -1,6 +1,4 @@
-// script.js - tea shop clone, simple js for practice
 
-// all tea products here
 var teaList = [
   { id: 1, name: "Organic Mountain High Chai", price: 12.50, type: "black",
     img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80", stars: 5 },
@@ -16,7 +14,6 @@ var teaList = [
     img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80", stars: 4 }
 ];
 
-// latte products
 var latteList = [
   { id: 7, name: "Nice Chai Latte Mix", price: 15.00, type: "latte",
     img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80", stars: 5,
@@ -34,7 +31,6 @@ var latteList = [
 
 var cart = [];
 
-// make star text like ★★★★☆
 function makeStars(num) {
   var s = "";
   for (var i = 0; i < 5; i++) {
@@ -43,7 +39,6 @@ function makeStars(num) {
   return s;
 }
 
-// print tea cards on page
 function printTeas(list, boxId) {
   var html = "";
   for (var i = 0; i < list.length; i++) {
@@ -60,7 +55,6 @@ function printTeas(list, boxId) {
   document.getElementById(boxId).innerHTML = html;
 }
 
-// filter teas when button clicked
 function showTeas(type, btn) {
   var all = teaList.concat(latteList);
   var result = [];
@@ -73,14 +67,12 @@ function showTeas(type, btn) {
     }
     printTeas(result, 'teaGrid');
   }
-  // change active button color
   var btns = document.getElementsByClassName('filter-btn');
   for (var j = 0; j < btns.length; j++) { btns[j].classList.remove('active'); }
   if (btn) { btn.classList.add('active'); }
   document.getElementById('shop').scrollIntoView();
 }
 
-// add product in cart
 function addCart(id) {
   var all = teaList.concat(latteList);
   for (var i = 0; i < all.length; i++) {
@@ -89,7 +81,6 @@ function addCart(id) {
   updateCart();
 }
 
-// refresh cart box
 function updateCart() {
   document.getElementById('cartCount').innerText = cart.length;
   var html = "";
@@ -105,13 +96,11 @@ function updateCart() {
   document.getElementById('cartTotal').innerText = total.toFixed(2);
 }
 
-// remove one item from cart
 function removeItem(index) {
   cart.splice(index, 1);
   updateCart();
 }
 
-// open and close cart
 function openCart() {
   document.getElementById('cartBox').classList.add('open');
   document.getElementById('cartBg').style.display = 'block';
@@ -121,12 +110,10 @@ function closeCart() {
   document.getElementById('cartBg').style.display = 'none';
 }
 
-// mobile menu open/close
 function openMenu() {
   document.getElementById('navBox').classList.toggle('open');
 }
 
-// reviews slider
 var reviews = [
   { text: '"The right amount of spice."', name: "- Sarah K. (Organic Mountain High Chai)" },
   { text: '"One sip and you can feel the difference - clean energy, rich flavor. Literally liquid gold."', name: "- Harrison G. (Golden Latte Mix)" },
@@ -143,7 +130,6 @@ function nextReview(step) {
   document.getElementById('reviewName').innerText = reviews[reviewIndex].name;
 }
 
-// newsletter join button
 function joinNews() {
   var email = document.getElementById('newsEmail').value;
   var msgBox = document.getElementById('newsMsg');
@@ -157,7 +143,6 @@ function joinNews() {
   }
 }
 
-// first time page load - print all products
 printTeas(teaList, 'teaGrid');
 printTeas(latteList, 'latteGrid');
 updateCart();
