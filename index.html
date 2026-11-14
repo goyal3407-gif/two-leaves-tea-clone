@@ -24,6 +24,7 @@
   </nav>
 
   <div class="header-right">
+    <input type="text" id="searchBox" class="search-box" placeholder="Search teas..." onkeyup="searchTea()">
     <button class="cart-btn" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
     <button class="menu-btn" onclick="openMenu()">☰</button>
   </div>
@@ -49,6 +50,18 @@
     <button class="filter-btn" onclick="showTeas('green', this)">Green Tea</button>
     <button class="filter-btn" onclick="showTeas('latte', this)">Latte Mix</button>
     <button class="filter-btn" onclick="showTeas('herbal', this)">Herbal</button>
+  </div>
+
+  <div class="sort-row">
+    <label>Sort by: </label>
+    <select id="sortSelect" onchange="sortTeas()">
+      <option value="featured">Featured</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="name">Name: A to Z</option>
+      <option value="rating">Top Rated</option>
+    </select>
+    <p id="resultCount" class="small-text"></p>
   </div>
 
   <div class="tea-grid" id="teaGrid">
@@ -118,24 +131,31 @@
 <section class="wholesale-section" id="wholesale">
   <h2>Our Cafe & Wholesale Partners</h2>
   <p>From local cafés to national chains, our teas power thousands of baristas every day.</p>
-  <a href="#footer" class="big-btn">Become a Partner</a>
+  <form class="partner-form" onsubmit="return sendPartnerForm()">
+    <input type="text" id="partnerName" placeholder="Your name">
+    <input type="text" id="partnerBiz" placeholder="Business / cafe name">
+    <input type="email" id="partnerEmail" placeholder="Business email">
+    <textarea id="partnerMsg" placeholder="Tell us about your cafe..." rows="3"></textarea>
+    <button type="submit" class="big-btn white-btn">Become a Partner</button>
+    <p id="partnerMsgOut"></p>
+  </form>
 </section>
 
 <section class="tea-section" id="journal">
   <h2 class="section-title">Journal</h2>
   <p class="small-text">A community steeped in <i>curiosity</i>. Explore recipes, culture, and everyday tea wisdom.</p>
   <div class="tea-grid">
-    <div class="journal-box">
+    <div class="journal-box" onclick="openArticle(0)">
       <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=600&q=80" alt="pouring tea">
       <h3>How to brew the perfect chai</h3>
       <p>5 simple steps most people get wrong...</p>
     </div>
-    <div class="journal-box">
+    <div class="journal-box" onclick="openArticle(1)">
       <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="tea cup">
       <h3>Matcha vs green tea - what's the difference?</h3>
       <p>Both come from the same plant, but...</p>
     </div>
-    <div class="journal-box">
+    <div class="journal-box" onclick="openArticle(2)">
       <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="tea pot">
       <h3>Our trip to the tea gardens of Assam</h3>
       <p>Notes from this year's sourcing trip...</p>
@@ -162,6 +182,39 @@
     <p id="newsMsg"></p>
   </div>
 </footer>
+
+<div class="modal-bg" id="quickBg">
+  <div class="modal-box">
+    <button class="close-btn" onclick="closeQuick()">✕</button>
+    <img id="quickImg" src="" alt="tea">
+    <h3 id="quickName"></h3>
+    <div class="star-line" id="quickStars"></div>
+    <p id="quickDesc"></p>
+    <label>Pack size: </label>
+    <select id="quickSize" onchange="changeQuickPrice()">
+      <option value="1">15 Sachets</option>
+      <option value="2.6">100 Sachets</option>
+      <option value="5">Bulk Loose Leaf 1 lb</option>
+    </select>
+    <div class="qty-row">
+      <button class="qty-btn" onclick="changeQty(-1)">-</button>
+      <span id="quickQty">1</span>
+      <button class="qty-btn" onclick="changeQty(1)">+</button>
+    </div>
+    <p class="price-tag">Price: $<span id="quickPrice">0.00</span></p>
+    <button class="big-btn" onclick="addQuickToCart()">Add to Cart</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="articleBg">
+  <div class="modal-box">
+    <button class="close-btn" onclick="closeArticle()">✕</button>
+    <h3 id="articleTitle"></h3>
+    <p id="articleText"></p>
+  </div>
+</div>
+
+<div class="toast-box" id="toastBox">Added to cart ✓</div>
 
 <div class="cart-bg" id="cartBg" onclick="closeCart()"></div>
 <div class="cart-box" id="cartBox">
