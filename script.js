@@ -1,36 +1,36 @@
 var teaList = [
   { id: 1, name: "Organic Mountain High Chai", price: 12.50, type: "black", stars: 5,
-    img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Bold black tea blended with cinnamon, ginger, cardamom and cloves. Our best selling chai for lattes and morning cups." },
   { id: 2, name: "Organic Assam Breakfast Tea", price: 10.00, type: "black", stars: 4,
-    img: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Full-bodied malty black tea from Assam, India. Strong enough for milk, smooth enough to drink plain." },
   { id: 3, name: "Organic Tropical Green Tea", price: 11.25, type: "green", stars: 5,
-    img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Light green tea with tropical fruit notes. Great hot, even better iced on a warm day." },
   { id: 4, name: "Organic Jasmine Petal Green", price: 13.00, type: "green", stars: 4,
-    img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Green tea scented with real jasmine petals. Floral, soft and calming." },
   { id: 5, name: "Organic Peppermint Herbal Tea", price: 9.75, type: "herbal", stars: 5,
-    img: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Pure peppermint leaves, naturally caffeine free. Fresh and cooling, perfect after food." },
   { id: 6, name: "Organic Chamomile Herbal Tea", price: 9.50, type: "herbal", stars: 4,
-    img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1523920290228-4f321a939b4c?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Whole chamomile flowers for a soft honey-like cup. The classic bedtime tea." }
 ];
 
 var latteList = [
   { id: 7, name: "Nice Chai Latte Mix", price: 15.00, type: "latte", stars: 5,
-    img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Not too sweet, not too spicy powdered mix for making tea lattes simple - just add hot milk." },
   { id: 8, name: "Nice Matcha Latte Mix", price: 16.50, type: "latte", stars: 5,
-    img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Finely ground green tea with just enough sweetness to blend into matcha lattes or smoothies." },
   { id: 9, name: "Golden Latte Mix - Two Roots", price: 14.25, type: "latte", stars: 4,
-    img: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Naturally caffeine-free blend of turmeric, spice and sweetness for golden lattes. Only 6g sugar per serving." },
   { id: 10, name: "Barista Chai Latte Mix", price: 17.00, type: "latte", stars: 5,
-    img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80",
+    img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&h=600&q=80",
     desc: "Real spices blend with cane sugar and black teas for an indulgent, spicy cafe-style chai." }
 ];
 
