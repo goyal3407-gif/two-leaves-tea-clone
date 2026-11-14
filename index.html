@@ -3,250 +3,209 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Two Leaves and a Bud - Tea Clone (practice project)</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<title>Two Leaves and a Bud | Organic Tea</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Oswald:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
-<body>
+<body id="top">
 
-<div class="topbar">
-  <p>Free shipping on orders over $50 &nbsp;|&nbsp; Use code TEATIME for 10% off</p>
-</div>
+<div class="topbar">FREE US SHIPPING FOR ORDERS OVER $50</div>
 
 <header class="myheader">
-  <div class="logo">Two Leaves <span>and a Bud</span></div>
-
-  <nav class="nav-links" id="navBox">
-    <a href="#shop">Shop</a>
-    <a href="#story">Our Origins</a>
-    <a href="#lattes">Lattes</a>
-    <a href="#wholesale">Wholesale</a>
-    <a href="#journal">Journal</a>
+  <nav class="nav-left">
+    <a href="#shop">Shop <span class="chev">⌄</span></a>
+    <a href="#story">Learn <span class="chev">⌄</span></a>
+    <a href="#reviews">Reviews</a>
   </nav>
 
-  <div class="header-right">
-    <input type="text" id="searchBox" class="search-box" placeholder="Search teas..." onkeyup="searchTea()">
-    <button class="cart-btn" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
+  <div class="logo">
+    <small>two</small>
+    <strong>leaves</strong>
+    <span>and a bud</span>
+  </div>
+
+  <div class="nav-right">
+    <a href="#footer">MY ACCOUNT</a>
+    <a href="#wholesale">CAFE &amp; WHOLESALE PARTNERS</a>
+    <a href="#journal">TEA JOURNAL</a>
+    <button class="icon-btn" onclick="goSearch()" aria-label="Search">⌕</button>
+    <button class="icon-btn bag-btn" onclick="bagShake()" aria-label="Bag">🛍<span class="bag-count" id="cartCount">0</span></button>
     <button class="menu-btn" onclick="openMenu()">☰</button>
   </div>
 </header>
+<nav class="mobile-nav" id="navBox">
+  <a href="#shop">Shop</a>
+  <a href="#story">Learn</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#wholesale">Cafe &amp; Wholesale Partners</a>
+  <a href="#journal">Tea Journal</a>
+</nav>
 
-<section class="hero-section">
+<section class="hero">
   <div class="hero-text">
-    <h1>A <i>great</i> cup starts with a careful pluck - the top two leaves and a bud.</h1>
-    <p>Whole leaf organic teas, sourced from the best gardens in the world and packed in Colorado.</p>
-    <a href="#shop" class="big-btn">Shop Best Sellers</a>
+    <div class="hero-sticker">BOGO!</div>
+    <h1>Buy One Latte,<br>Get One Free!</h1>
+    <p>Mix and match across Hojicha, Golden Latte, Nice Chai and Barista Chai. Add any two cozy lattes to your bag and the cheaper one is on us.</p>
+    <p class="hero-note"><i>Matcha lattes are not included. Offer valid through Saturday.</i></p>
+    <a href="#lattes" class="white-btn">Shop Now</a>
   </div>
-  <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="cup of tea">
+  <div class="hero-pouches" id="heroPouches">
+    <div class="pouch pouch-grey hero-p1"><div class="pouch-top"></div><div class="pouch-animal">🦊</div><h4>Hojicha</h4><p>Latte Mix</p></div>
+    <div class="pouch pouch-tan hero-p2"><div class="pouch-top"></div><div class="pouch-animal">🐘</div><h4>Barista Chai</h4><p>Latte Mix</p></div>
+    <div class="pouch pouch-yellow hero-p3"><div class="pouch-top"></div><div class="pouch-animal">🦜</div><h4>Golden Latte</h4><p>Two Roots</p></div>
+    <div class="pouch pouch-blue hero-p4"><div class="pouch-top"></div><div class="pouch-animal">🐘</div><h4>Nice Chai</h4><p>Latte Mix</p></div>
   </div>
+  <button class="hero-next" onclick="heroNext()">›</button>
+  <button class="hero-down" onclick="goTagline()">⌄</button>
 </section>
 
-<section class="tea-section" id="shop">
-  <h2 class="section-title">Best Sellers</h2>
+<section class="tagline" id="tagline">
+  <h2>A <i>great</i> cup starts with a careful pluck – the top two leaves and a bud.</h2>
+</section>
 
-  <div class="filter-row">
-    <button class="filter-btn active" onclick="showTeas('all', this)">All</button>
-    <button class="filter-btn" onclick="showTeas('black', this)">Black Tea</button>
-    <button class="filter-btn" onclick="showTeas('green', this)">Green Tea</button>
-    <button class="filter-btn" onclick="showTeas('latte', this)">Latte Mix</button>
-    <button class="filter-btn" onclick="showTeas('herbal', this)">Herbal</button>
-  </div>
-
-  <div class="sort-row">
-    <label>Sort by: </label>
-    <select id="sortSelect" onchange="sortTeas()">
-      <option value="featured">Featured</option>
-      <option value="low">Price: Low to High</option>
-      <option value="high">Price: High to Low</option>
-      <option value="name">Name: A to Z</option>
-      <option value="rating">Top Rated</option>
-    </select>
-    <p id="resultCount" class="small-text"></p>
-  </div>
-
+<section class="shop-section" id="shop">
+  <div class="sticker sticker-purple">BEST SELLERS</div>
   <div class="row-wrap">
-    <button class="row-arrow" onclick="scrollRow(-1)">&#10094;</button>
-    <div class="tea-grid tea-row" id="teaGrid"></div>
-    <button class="row-arrow" onclick="scrollRow(1)">&#10095;</button>
+    <div class="tea-row" id="teaRow"></div>
+    <button class="row-next" onclick="scrollRow(1)">›</button>
+  </div>
+  <div class="dots"><span class="dot dot-on"></span><span class="dot"></span></div>
+  <div class="center-row"><a href="#shop" class="navy-btn">Explore All Teas</a></div>
+</section>
+
+<section class="review-section" id="reviews">
+  <div class="sticker sticker-lime">REVIEWS</div>
+  <h2 class="section-title left-title">Loved by tea people <i>everywhere</i>.<br>Here’s what they’re saying.</h2>
+  <div class="review-row" id="reviewRow"></div>
+</section>
+
+<section class="origins" id="story">
+  <img class="origins-bg" src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1800&q=80" alt="green tea hills">
+  <div class="origins-shade"></div>
+  <div class="origins-content">
+    <div class="origins-label">OUR ORIGINS</div>
+    <h2>BORN IN<br> COLORADO</h2>
+    <p>Our founder, Richard, started Two Leaves and a Bud in pursuit of a truly great cup. Two decades later, that same care and curiosity guide everything we make.</p>
+    <div class="value-lines">
+      <div class="value-line"><span>✦</span> QUALITY, WITHOUT PRETENSE</div>
+      <div class="value-line"><span>✿</span> CARE FOR PEOPLE &amp; PLANET</div>
+      <div class="value-line"><span>◎</span> TRANSPARENT SOURCING</div>
+    </div>
+    <a href="#story" class="white-btn">Our Story</a>
+  </div>
+  <div class="round-badge">
+    <svg viewBox="0 0 100 100"><defs><path id="circPath" d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0"></path></defs><text><textPath href="#circPath">FROM FARM TO KETTLE • FROM MOUNTAINS TO MUG • </textPath></text></svg>
+    <div class="badge-kettle">🫖</div>
   </div>
 </section>
 
-<section class="review-section">
-  <p class="small-tag">Reviews</p>
-  <h2 class="section-title">Loved by tea people <i>everywhere</i>.</h2>
-  <p class="small-text">Here's what they're saying.</p>
+<section class="discover" id="discover">
+  <div class="sticker sticker-orange">DISCOVER</div>
+  <h2 class="section-title left-title">Let’s find a cup that <i>fits the moment</i>. What are you searching for?</h2>
+  <div class="discover-search">
+    <span>⌕</span>
+    <input type="text" id="discoverInput" placeholder="Search..." onkeyup="searchDiscover()">
+  </div>
+  <p class="vibe-label">OR EXPLORE BY VIBE...</p>
+  <div class="vibe-pills" id="vibePills"></div>
+</section>
 
-  <div class="review-box">
-    <button class="arrow-btn" onclick="nextReview(-1)">&#10094;</button>
-    <div class="review-cards" id="reviewCards"></div>
-    <button class="arrow-btn" onclick="nextReview(1)">&#10095;</button>
+<section class="wholesale" id="wholesale">
+  <div class="wholesale-img">
+    <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=1000&q=80" alt="iced matcha latte">
+  </div>
+  <div class="wholesale-text">
+    <h2>Our Cafe &amp;<br>Wholesale Partners</h2>
+    <p>From local cafés to national chains, our teas power thousands of baristas every day.</p>
+    <a href="#wholesale" class="white-btn">Learn More</a>
   </div>
 </section>
 
-<section class="story-section" id="story">
-  <div class="story-text">
-    <p class="small-tag">Our Origins</p>
-    <h2>Born in Colorado</h2>
-    <p>Our founder started this company in pursuit of a truly great cup of tea. Two decades later, that same care and curiosity guide everything we make - from farm to kettle.</p>
+<section class="lattes" id="lattes">
+  <div class="latte-badge">
+    <svg viewBox="0 0 100 100"><defs><path id="circPath2" d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0"></path></defs><text><textPath href="#circPath2">DESIGNED FOR EASE • EASY TO MAKE, HARD TO FORGET • </textPath></text></svg>
+    <div class="badge-kettle">🥄</div>
   </div>
+  <div class="sticker sticker-peach">OUR LATTES</div>
+  <div class="latte-head">
+    <h2>BARISTA BLENDS FOR EVERY MOOD</h2>
+    <span>(NO TRAINING REQUIRED)</span>
+  </div>
+  <div class="latte-card" id="latteCard"></div>
+  <button class="latte-arrow latte-prev" onclick="nextLatte(-1)">‹</button>
+  <button class="latte-arrow latte-next" onclick="nextLatte(1)">›</button>
+</section>
 
-  <div class="value-row">
-    <div class="value-box">
-      <div class="value-icon">🌿</div>
-      <h3>Quality, Without Pretense</h3>
-      <p>Whole leaf, organic ingredients. Nothing fake, ever.</p>
-    </div>
-    <div class="value-box">
-      <div class="value-icon">🤝</div>
-      <h3>Care for People & Planet</h3>
-      <p>We pay fair prices and use compostable sachets.</p>
-    </div>
-    <div class="value-box">
-      <div class="value-icon">🔍</div>
-      <h3>Transparent Sourcing</h3>
-      <p>We tell you exactly where your tea comes from.</p>
-    </div>
+<section class="journal-section" id="journal">
+  <div class="sticker sticker-yellow">JOURNAL</div>
+  <h2 class="section-title left-title">A community steeped in <i>curiosity</i>. Explore recipes, culture, and everyday tea wisdom.</h2>
+  <div class="journal-row" id="journalRow"></div>
+  <div class="dots"><span class="dot dot-on"></span><span class="dot"></span></div>
+  <div class="center-row"><a href="#journal" class="navy-btn">Explore The Tea Journal</a></div>
+</section>
+
+<section class="about-band">
+  <div class="about-card">
+    <h3>Great Tea.<br>In Good Company.</h3>
+    <p>Discover the people, places, and purpose behind every blend.</p>
+    <a href="#story" class="white-btn">About us</a>
+  </div>
+  <div class="about-img">
+    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=80" alt="cup of amber tea">
   </div>
 </section>
 
-<section class="band-section">
-  <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1600&q=80" alt="green tea garden">
-  <div class="band-text">
-    <h2>From farm to kettle</h2>
-    <p>We visit the gardens, taste every lot, and only buy what we would proudly serve at home.</p>
+<footer id="footer">
+  <div class="news-band">
+    <div class="news-main">
+      <h3>STEEP WITH US</h3>
+      <p>Get news stories, brewing tips, and special offers straight to your inbox.</p>
+      <form class="news-form" onsubmit="return joinNews()">
+        <input type="email" id="newsEmail" placeholder="name@email.com">
+        <button type="submit">Submit</button>
+      </form>
+      <p class="news-msg" id="newsMsg"></p>
+    </div>
+    <div class="socials">
+      <span class="social-circle">f</span>
+      <span class="social-circle social-grey">◎</span>
+      <span class="social-circle">in</span>
+    </div>
   </div>
-</section>
 
-<section class="vibe-section">
-  <p class="small-tag">Discover</p>
-  <h2 class="section-title">Let's find a cup that fits the <i>moment</i>.</h2>
-  <p class="small-text">What are you searching for? Or explore by vibe...</p>
-  <div class="vibe-tiles">
-    <div class="vibe-tile" onclick="showTeas('black', null)">
-      <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=500&h=380&q=80" alt="black tea">
-      <span>Morning Energy</span>
+  <div class="footer-card">
+    <div class="footer-cols">
+      <div class="fcol"><h4>Tea Varieties</h4><a href="#shop">Whole Leaf Tea Sachets</a><a href="#shop">Pure Matcha</a><a href="#lattes">Tea Lattes</a><a href="#shop">Iced Tea</a><a href="#shop">New!</a></div>
+      <div class="fcol"><h4>Collections</h4><a href="#shop">Chai</a><a href="#shop">Organic Tea</a><a href="#shop">Naked Tea Sachets</a><a href="#shop">Black Tea</a><a href="#shop">Green Tea</a><a href="#shop">Herbal Tea</a><a href="#shop">Caffeine-Free</a><a href="#shop">Gift &amp; Samplers</a></div>
+      <div class="fcol"><h4>Lattes</h4><a href="#lattes">Nice Matcha</a><a href="#lattes">Barista Matcha</a><a href="#lattes">Nice Chai</a><a href="#lattes">Barista Chai</a><a href="#lattes">Two Roots Golden Latte</a></div>
+      <div class="fcol"><h4>Learn</h4><a href="#story">Our Story</a><a href="#story">Our Spirit</a><a href="#footer">FAQ</a><a href="#reviews">Reviews</a></div>
+      <div class="fcol"><h4>Tea Journal</h4><a href="#journal">All Articles</a><a href="#journal">Tea 101</a><a href="#journal">Recipes</a><a href="#journal">Sustainability</a></div>
+      <div class="fcol"><h4>Support</h4><a href="#footer">Contact</a><a href="#footer">My Account</a><a href="#footer">Loyal-Tea</a><a href="#footer">Shipping &amp; Returns</a><a href="#footer">Privacy Policy</a><a href="#footer">Terms &amp; Conditions</a></div>
+      <div class="fcol"><h4>Cafe &amp; Wholesale Partners</h4><a href="#wholesale">Cafe &amp; Wholesale Partners</a><a href="#wholesale">Wholesale Login</a><a href="#wholesale">Product and Media Files</a><a href="#wholesale">Displays &amp; Starter Kits</a><a href="#wholesale">Brew Guide</a><a href="#wholesale">Wholesale Catalog</a></div>
     </div>
-    <div class="vibe-tile" onclick="showTeas('herbal', null)">
-      <img src="https://images.unsplash.com/photo-1523920290228-4f321a939b4c?auto=format&fit=crop&w=500&h=380&q=80" alt="herbal tea">
-      <span>Calm & Cozy</span>
+    <div class="footer-art">
+      <svg class="mountains" viewBox="0 0 1200 190" preserveAspectRatio="none"><path d="M0,190 L140,80 L250,140 L390,40 L520,130 L650,60 L790,150 L920,50 L1050,135 L1200,70 L1200,190 Z" fill="none" stroke="#111" stroke-width="3"></path><path d="M330,190 l18,-42 l18,42 M420,190 l14,-34 l14,34 M860,190 l18,-42 l18,42" stroke="#111" stroke-width="3" fill="none"></path></svg>
+      <div class="footer-logo"><small>two</small><strong>leaves</strong><span>and a bud</span></div>
+      <p class="copy-line">© TWO LEAVES AND A BUD 2026</p>
     </div>
-    <div class="vibe-tile" onclick="showTeas('green', null)">
-      <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?auto=format&fit=crop&w=500&h=380&q=80" alt="green tea">
-      <span>Light & Fresh</span>
-    </div>
-    <div class="vibe-tile" onclick="showTeas('latte', null)">
-      <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=500&h=380&q=80" alt="matcha latte">
-      <span>Sweet Treat</span>
-    </div>
-  </div>
-</section>
-
-<section class="tea-section" id="lattes">
-  <h2 class="section-title">Our Lattes - Barista Blends for Every Mood</h2>
-  <p class="small-text">(No training required)</p>
-  <div class="tea-grid" id="latteGrid">
-    
-  </div>
-</section>
-
-<section class="wholesale-section" id="wholesale">
-  <h2>Our Cafe & Wholesale Partners</h2>
-  <p>From local cafés to national chains, our teas power thousands of baristas every day.</p>
-  <form class="partner-form" onsubmit="return sendPartnerForm()">
-    <input type="text" id="partnerName" placeholder="Your name">
-    <input type="text" id="partnerBiz" placeholder="Business / cafe name">
-    <input type="email" id="partnerEmail" placeholder="Business email">
-    <textarea id="partnerMsg" placeholder="Tell us about your cafe..." rows="3"></textarea>
-    <button type="submit" class="big-btn white-btn">Become a Partner</button>
-    <p id="partnerMsgOut"></p>
-  </form>
-</section>
-
-<section class="tea-section" id="journal">
-  <h2 class="section-title">Journal</h2>
-  <p class="small-text">A community steeped in <i>curiosity</i>. Explore recipes, culture, and everyday tea wisdom.</p>
-  <div class="tea-grid">
-    <div class="journal-box" onclick="openArticle(0)">
-      <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=600&q=80" alt="pouring tea">
-      <h3>How to brew the perfect chai</h3>
-      <p>5 simple steps most people get wrong...</p>
-    </div>
-    <div class="journal-box" onclick="openArticle(1)">
-      <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="tea cup">
-      <h3>Matcha vs green tea - what's the difference?</h3>
-      <p>Both come from the same plant, but...</p>
-    </div>
-    <div class="journal-box" onclick="openArticle(2)">
-      <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="tea pot">
-      <h3>Our trip to the tea gardens of Assam</h3>
-      <p>Notes from this year's sourcing trip...</p>
-    </div>
-  </div>
-</section>
-
-<footer class="myfooter" id="footer">
-  <div class="footer-col">
-    <h3>Two Leaves and a Bud</h3>
-    <p>Basalt, Colorado<br>Practice clone project - not the real store.</p>
-  </div>
-  <div class="footer-col">
-    <h4>Shop</h4>
-    <a href="#shop">Best Sellers</a>
-    <a href="#lattes">Lattes</a>
-    <a href="#wholesale">Wholesale</a>
-  </div>
-  <div class="footer-col">
-    <h4>Newsletter</h4>
-    <p>Get 10% off your first order.</p>
-    <input type="email" id="newsEmail" placeholder="Your email">
-    <button class="small-btn" onclick="joinNews()">Join</button>
-    <p id="newsMsg"></p>
   </div>
 </footer>
 
-<div class="modal-bg" id="quickBg">
-  <div class="modal-box">
-    <button class="close-btn" onclick="closeQuick()">✕</button>
-    <img id="quickImg" src="" alt="tea">
-    <h3 id="quickName"></h3>
-    <div class="star-line" id="quickStars"></div>
-    <p id="quickDesc"></p>
-    <label>Pack size: </label>
-    <select id="quickSize" onchange="changeQuickPrice()">
-      <option value="1">15 Sachets</option>
-      <option value="2.6">100 Sachets</option>
-      <option value="5">Bulk Loose Leaf 1 lb</option>
-    </select>
-    <div class="qty-row">
-      <button class="qty-btn" onclick="changeQty(-1)">-</button>
-      <span id="quickQty">1</span>
-      <button class="qty-btn" onclick="changeQty(1)">+</button>
-    </div>
-    <p class="price-tag">Price: $<span id="quickPrice">0.00</span></p>
-    <button class="big-btn" onclick="addQuickToCart()">Add to Cart</button>
+<button class="access-btn" aria-label="Accessibility">♿</button>
+<button class="off-tab" onclick="openPopup()">Get 10% Off</button>
+
+<div class="popup-bg" id="popupBg">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <h3>Get 10% off your first order!</h3>
+    <p>Join the list and we will send your welcome offer by email.</p>
+    <input type="email" id="popupEmail" placeholder="Email address">
+    <button class="popup-claim" onclick="claimOffer()">Claim my 10% off</button>
+    <button class="popup-no" onclick="closePopup()">NO THANKS</button>
+    <p class="news-msg" id="popupMsg"></p>
   </div>
 </div>
 
-<div class="modal-bg" id="articleBg">
-  <div class="modal-box">
-    <button class="close-btn" onclick="closeArticle()">✕</button>
-    <h3 id="articleTitle"></h3>
-    <p id="articleText"></p>
-  </div>
-</div>
-
-<div class="toast-box" id="toastBox">Added to cart ✓</div>
-
-<div class="cart-bg" id="cartBg" onclick="closeCart()"></div>
-<div class="cart-box" id="cartBox">
-  <button class="close-btn" onclick="closeCart()">✕</button>
-  <h3>Your Cart</h3>
-  <div id="cartItems"></div>
-  <h4 class="cart-total">Total: $<span id="cartTotal">0.00</span></h4>
-  <button class="big-btn" onclick="alert('Demo checkout - this is a practice project!')">Checkout</button>
-</div>
-
-<script src="script.js?v=5"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
