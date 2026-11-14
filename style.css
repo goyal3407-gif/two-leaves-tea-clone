@@ -21,12 +21,12 @@ body {
 
 .myheader {
   position: sticky;
-  margin:10px;
-  border-radius:20px;
-  top: 0;
+  top: 15px;
   z-index: 60;
   background: #ffffff;
-  border-bottom: 1px solid #111111;
+  border: 1px solid #111111;
+  border-radius: 20px;
+  margin: 15px;
   min-height: 66px;
   display: flex;
   align-items: center;
@@ -860,7 +860,7 @@ footer { background: #fffbeb; }
     border-bottom: 1.5px solid #111111;
     padding: 16px 22px;
     position: sticky;
-    top: 66px;
+    top: 96px;
     z-index: 55;
   }
   .mobile-nav a { color: #111111; text-decoration: none; font-family: 'Playfair Display', Georgia, serif; font-size: 19px; }
